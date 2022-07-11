@@ -17,12 +17,42 @@ function checkBuildStatus() {
             }
         ])
         .then((answer) => {
-            if(answer) {
+            if (answer) {
                 checkType();
             } else {
-                return
+                // generateHTML();
             }
         })
+}
+
+function buildManager() {
+    inquirer
+        .prompt([
+            {
+                name: "managerName",
+                type: "input",
+                message: "What is your managers name?",
+            },
+            {
+                name: "managerID",
+                type: "number",
+                message: "What is their ID number?"
+            },
+            {
+                name: "managerEmail",
+                type: "input",
+                message: "What is their Email?"
+            },
+            {
+                name: "managerOfficeNumber",
+                type: "number",
+                message: "What is their office number?"
+            }
+        ])
+        .then((...answers) => {
+            team.push(answers);
+            checkBuildStatus();
+        });
 }
 
 function checkType() {
@@ -32,13 +62,13 @@ function checkType() {
                 name: "type",
                 type: "checkbox",
                 message: "What role do you want to add?",
-                choices: ["Engineer","Intern", "Manager"]
+                choices: ["Engineer", "Intern", "Manager"]
             }
         ])
         .then((answer) => {
-            if(answer.type[0] == "Manager") {
-                // buildManager();
-            } else if(answer.type[0] == "Engineer") {
+            if (answer.type[0] == "Manager") {
+                buildManager();
+            } else if (answer.type[0] == "Engineer") {
                 // buildEngineer();
             } else {
                 // buildIntern();

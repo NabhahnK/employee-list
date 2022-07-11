@@ -4,7 +4,61 @@ const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const GenerateHTML = require("./lib/GenerateHTML");
 let team = [];
+const base = `<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>My Team</title>
+</head>
+
+<body>
+    <header>
+        <h1>My Team</h1>
+    </header>
+
+    <main>
+
+        <div class="card">
+            <div class="container">
+                <section>
+                    <h4>John Doe</h4>
+                    <h5>Architect & Engineer</h5>
+                </section>
+              <table>
+                <tr>
+                    <th>bob</th>
+                </tr>
+                <tr>
+                    <th>bob</th>
+                </tr>
+            </table>
+            </div>
+          </div>
+
+    </main>
+
+    <script src="./assets/scripts/index.js"></script>
+</body>
+
+</html>`
+
+
+// makeCards(team) {
+
+// }
+
+function generateHTML() {
+    return "hello"
+    // makeCards(team);
+}
+
 
 function checkBuildStatus() {
     inquirer
@@ -19,7 +73,8 @@ function checkBuildStatus() {
             if (answer.moreE === true) {
                 checkType();
             } else {
-                generateHTML(team);
+                console.log(GenerateHTML)
+                fs.writeFile("./dist/index.html", GenerateHTML.generateHTML());
             }
         })
 }
@@ -168,6 +223,11 @@ inquirer
         const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.managerOfficeNumber);
         team.push(manager);
         console.log(team);
+        if (team[0].constructor.name === "Manager") {
+            console.log("Hello");
+        } else {
+            console.log("what")
+        }
         checkBuildStatus();
     });
 

@@ -1,0 +1,49 @@
+header {
+    text-align: center;
+    background-color: rgb(236, 98, 98);
+    font-size: 1.2em;
+    padding: 1.4em;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    /* Add shadows to create the "card" effect and addp a margin top and min-qidth */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-top: 1em;
+    min-width: 10%;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  /* Adds backgroun color and centers */
+  .container {
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* keeps it white and adds margins */
+  table {
+    background-color: #fff;
+    margin-top: .4em;
+    margin-bottom: .4em;
+    border-collapse: collapse;
+    width: 80%;
+  }
+
+  /* adds borders and text align */
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }

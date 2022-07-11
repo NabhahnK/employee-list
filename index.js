@@ -17,10 +17,11 @@ function checkBuildStatus() {
             }
         ])
         .then((answer) => {
-            if (answer) {
+            if (answer.moreE === true) {
                 checkType();
             } else {
                 // generateHTML();
+                return
             }
         })
 }
@@ -49,8 +50,42 @@ function buildManager() {
                 message: "What is their office number?"
             }
         ])
-        .then((...answers) => {
-            team.push(answers);
+        .then((answers) => {
+            const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.managerOfficeNumber);
+            team.push(manager);
+            console.log(team);
+            checkBuildStatus();
+        });
+}
+
+function buildEngineer() {
+    inquirer
+        .prompt([
+            {
+                name: "engineerName",
+                type: "input",
+                message: "What is your managers name?",
+            },
+            {
+                name: "engineerID",
+                type: "number",
+                message: "What is their ID number?"
+            },
+            {
+                name: "engineerEmail",
+                type: "input",
+                message: "What is their Email?"
+            },
+            {
+                name: "engineerGithub",
+                type: "number",
+                message: "What is their GitHub username?"
+            }
+        ])
+        .then((answers) => {
+            const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerOfficeNumber);
+            team.push(engineer);
+            console.log(team);
             checkBuildStatus();
         });
 }
@@ -69,7 +104,7 @@ function checkType() {
             if (answer.type[0] == "Manager") {
                 buildManager();
             } else if (answer.type[0] == "Engineer") {
-                // buildEngineer();
+                buildEngineer();
             } else {
                 // buildIntern();
             }
@@ -99,8 +134,10 @@ inquirer
             message: "What is their office number?"
         }
     ])
-    .then((...answers) => {
-        team.push(answers);
+    .then((answers) => {
+        const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.managerOfficeNumber);
+        team.push(manager);
+        console.log(team);
         checkBuildStatus();
     });
 

@@ -1,2 +1,6 @@
 const fs = require("fs");
-var inquirer = require('inquirer');
+const inquirer = require('inquirer');
+const lib = require("./lib");
+const Manager = require("./lib/Manager");
+
+const dude = new Manager

@@ -5,7 +5,6 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 let team = [];
-let continueBuilding = true;
 
 function checkBuildStatus() {
     inquirer
@@ -20,8 +19,7 @@ function checkBuildStatus() {
             if (answer.moreE === true) {
                 checkType();
             } else {
-                // generateHTML();
-                return
+                generateHTML(team);
             }
         })
 }

@@ -22,5 +22,8 @@
   "dependencies": {
     "inquirer": "^6.3.1"
   },
-  "homepage": "https://github.com/NabhahnK/employee-list#readme"
+  "homepage": "https://github.com/NabhahnK/employee-list#readme",
+  "devDependencies": {
+    "jest": "^28.1.2"
+  }
 }

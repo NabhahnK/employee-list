@@ -64,7 +64,7 @@ function buildEngineer() {
             {
                 name: "engineerName",
                 type: "input",
-                message: "What is your managers name?",
+                message: "What is your engineers name?",
             },
             {
                 name: "engineerID",
@@ -78,13 +78,45 @@ function buildEngineer() {
             },
             {
                 name: "engineerGithub",
-                type: "number",
+                type: "input",
                 message: "What is their GitHub username?"
             }
         ])
         .then((answers) => {
-            const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerOfficeNumber);
+            const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerGithub);
             team.push(engineer);
+            console.log(team);
+            checkBuildStatus();
+        });
+}
+
+function buildIntern() {
+    inquirer
+        .prompt([
+            {
+                name: "internName",
+                type: "input",
+                message: "What is your intern name?",
+            },
+            {
+                name: "internID",
+                type: "number",
+                message: "What is their ID number?"
+            },
+            {
+                name: "internEmail",
+                type: "input",
+                message: "What is their Email?"
+            },
+            {
+                name: "internSchool",
+                type: "input",
+                message: "What is their school?"
+            }
+        ])
+        .then((answers) => {
+            const intern = new Intern(answers.internName, answers.internID, answers.internEmail, answers.internSchool);
+            team.push(intern);
             console.log(team);
             checkBuildStatus();
         });
@@ -106,7 +138,7 @@ function checkType() {
             } else if (answer.type[0] == "Engineer") {
                 buildEngineer();
             } else {
-                // buildIntern();
+                buildIntern();
             }
         })
 }

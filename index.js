@@ -25,6 +25,27 @@ function checkBuildStatus() {
         })
 }
 
+function checkType() {
+    inquirer
+        .prompt([
+            {
+                name: "type",
+                type: "checkbox",
+                message: "What role do you want to add?",
+                choices: ["Engineer","Intern", "Manager"]
+            }
+        ])
+        .then((answer) => {
+            if(answer.type[0] == "Manager") {
+                // buildManager();
+            } else if(answer.type[0] == "Engineer") {
+                // buildEngineer();
+            } else {
+                // buildIntern();
+            }
+        })
+}
+
 inquirer
     .prompt([
         {
@@ -50,7 +71,6 @@ inquirer
     ])
     .then((...answers) => {
         team.push(answers);
-        console.log(team);
         checkBuildStatus();
     });
 

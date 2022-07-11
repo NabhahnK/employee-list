@@ -1,18 +1,18 @@
 const fs = require("fs");
-const Engineer = require("../lib/Engineer");
+const Intern = require("../lib/Intern");
 jest.mock("fs");
 
 
-describe("Engineer", () => {
-    describe("buildEngineer", () => {
-        it("Should build an Engineer with four keys", () => {
+describe("Intern", () => {
+    describe("buildIntern", () => {
+        it("Should build an Intern with four keys", () => {
             const name = "Bob";
             const id = 7;
             const email = "Test@email.com";
-            const github = "test";
+            const school = "test";
             let count = 0;
 
-            const testE = new Engineer(name, id, email, github);
+            const testE = new Intern(name, id, email, school);
             for(let properties in testE) {
                 count = count + 1;
             }
@@ -23,13 +23,13 @@ describe("Engineer", () => {
         })
     })
 
-    describe("EngineerRole", () => {
-        it("Should return the role Engineer", () => {
+    describe("InternRole", () => {
+        it("Should return the role Intern", () => {
             const args = ["bob", 7, "blah",];
 
-            const testE = new Engineer(...args);
+            const testE = new Intern(...args);
 
-            expect(testE.getRole()).toEqual("Engineer");
+            expect(testE.getRole()).toEqual("Intern");
         })
     });
 })

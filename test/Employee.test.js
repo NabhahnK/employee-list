@@ -16,9 +16,19 @@ describe("Employee", () => {
                 count = count + 1;
             }
 
+            expect(testE.name).toEqual("Bob");
             expect(count).toEqual(3);
+            expect(testE.name).toEqual(testE.getName());
         })
     })
 
-    // describe();
+    describe("EmployeeRole", () => {
+        it("Should return the role Employee", () => {
+            const args = ["bob", 7, "blah",];
+
+            const testE = new Employee(...args);
+
+            expect(testE.getRole()).toEqual("Employee");
+        })
+    });
 })

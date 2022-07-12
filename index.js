@@ -31,8 +31,6 @@ const baseF = `<!DOCTYPE html>
 // Stores the second part of the html
 const baseS = `
     </main>
-
-    <script src="./assets/scripts/index.js"></script>
 </body>
 
 </html>`

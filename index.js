@@ -4,9 +4,8 @@ const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const GenerateHTML = require("./lib/GenerateHTML");
 let team = [];
-const base = `<!DOCTYPE html>
+const baseF = `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -41,7 +40,8 @@ const base = `<!DOCTYPE html>
             </table>
             </div>
           </div>
-
+`
+const baseS =`
     </main>
 
     <script src="./assets/scripts/index.js"></script>
@@ -50,13 +50,18 @@ const base = `<!DOCTYPE html>
 </html>`
 
 
-// makeCards(team) {
-
-// }
+function makeCards() {
+    team.forEach((element) => console.log("works"))
+}
 
 function generateHTML() {
-    return "hello"
-    // makeCards(team);
+    // return "hello"
+    fs.writeFile("./dist/index.html", baseF, err => {
+        if (err) {
+            console.log("Did not write baseF");
+        }
+    })
+    makeCards();
 }
 
 
@@ -73,8 +78,7 @@ function checkBuildStatus() {
             if (answer.moreE === true) {
                 checkType();
             } else {
-                console.log(GenerateHTML)
-                fs.writeFile("./dist/index.html", GenerateHTML.generateHTML());
+                generateHTML();
             }
         })
 }
@@ -223,11 +227,7 @@ inquirer
         const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.managerOfficeNumber);
         team.push(manager);
         console.log(team);
-        if (team[0].constructor.name === "Manager") {
-            console.log("Hello");
-        } else {
-            console.log("what")
-        }
+        // if (team[0].constructor.name === "Manager")
         checkBuildStatus();
     });
 

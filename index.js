@@ -23,23 +23,6 @@ const baseF = `<!DOCTYPE html>
     </header>
 
     <main>
-
-        <div class="card">
-            <div class="container">
-                <section>
-                    <h4>John Doe</h4>
-                    <h5>Architect & Engineer</h5>
-                </section>
-              <table>
-                <tr>
-                    <th>bob</th>
-                </tr>
-                <tr>
-                    <th>bob</th>
-                </tr>
-            </table>
-            </div>
-          </div>
 `
 const baseS = `
     </main>
@@ -56,7 +39,7 @@ function makeCards() {
             case "Manager":
                 console.log("Manager");
                 console.log(team[i]);
-                let card = `
+                let cardM = `
                 <div class="card">
                 <div class="container">
                     <section>
@@ -73,15 +56,81 @@ function makeCards() {
                 </table>
                 </div>
               </div>`
-              console.log(card);
+              fs.appendFile("./dist/index.html", cardM, err => {
+                if (err) {
+                  console.error(err);
+                }
+                // done!
+              });
+              console.log(cardM);
                 break;
             case "Engineer":
                 console.log("Engi");
+                let cardE = `
+                <div class="card">
+                <div class="container">
+                    <section>
+                        <h4>${team[i].getName()}</h4>
+                        <h5>${team[i].getRole()}</h5>
+                    </section>
+                  <table>
+                    <tr>
+                        <th>ID: ${team[i].getID()}</th>
+                    </tr>
+                    <tr>
+                        <th>Email: ${team[i].getEmail()}</th>
+                    </tr>
+                    <tr>
+                        <th>GitHub: ${team[i].getGithub()}</th>
+                    </tr>
+                </table>
+                </div>
+              </div>`
+              fs.appendFile("./dist/index.html", cardE, err => {
+                if (err) {
+                  console.error(err);
+                }
+                // done!
+              });
+              console.log(cardE);
                 break;
             default:
                 console.log("In");
+                let cardI = `
+                <div class="card">
+                <div class="container">
+                    <section>
+                        <h4>${team[i].getName()}</h4>
+                        <h5>${team[i].getRole()}</h5>
+                    </section>
+                  <table>
+                    <tr>
+                        <th>ID: ${team[i].getID()}</th>
+                    </tr>
+                    <tr>
+                        <th>Email: ${team[i].getEmail()}</th>
+                    </tr>
+                    <tr>
+                        <th>GitHub: ${team[i].getSchool()}</th>
+                    </tr>
+                </table>
+                </div>
+              </div>`
+              fs.appendFile("./dist/index.html", cardI, err => {
+                if (err) {
+                  console.error(err);
+                }
+                // done!
+              });
+              console.log(cardI);
         }
     }
+    fs.appendFile("./dist/index.html", baseS, err => {
+        if (err) {
+          console.error(err);
+        }
+        // done!
+      });
 }
 
 function generateHTML() {

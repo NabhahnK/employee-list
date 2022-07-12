@@ -1,3 +1,4 @@
+/* Makes header have a red background and center text */
 header {
     text-align: center;
     background-color: rgb(236, 98, 98);
@@ -5,6 +6,7 @@ header {
     padding: 1.4em;
 }
 
+/* Changes display to flex and centers and wraps content */
 main {
     display: flex;
     justify-content: center;
@@ -35,6 +37,7 @@ main {
     align-content: space-around;
   }
 
+  /* Adds a margin to card headers */
   .container h4, .container h5{
     margin-top: .4em;
   }

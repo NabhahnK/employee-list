@@ -55,6 +55,25 @@ function makeCards() {
         switch (team[i].constructor.name) {
             case "Manager":
                 console.log("Manager");
+                console.log(team[i]);
+                let card = `
+                <div class="card">
+                <div class="container">
+                    <section>
+                        <h4>${team[i].getName()}</h4>
+                        <h5>${team[i].getRole()}</h5>
+                    </section>
+                  <table>
+                    <tr>
+                        <th>ID: ${team[i].getID()}</th>
+                    </tr>
+                    <tr>
+                        <th>Email: ${team[i].getEmail()}</th>
+                    </tr>
+                </table>
+                </div>
+              </div>`
+              console.log(card);
                 break;
             case "Engineer":
                 console.log("Engi");

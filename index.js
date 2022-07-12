@@ -41,7 +41,7 @@ const baseF = `<!DOCTYPE html>
             </div>
           </div>
 `
-const baseS =`
+const baseS = `
     </main>
 
     <script src="./assets/scripts/index.js"></script>
@@ -51,7 +51,18 @@ const baseS =`
 
 
 function makeCards() {
-    team.forEach((element) => console.log("works"))
+    for (let i = 0; i < team.length; i++) {
+        switch (team[i].constructor.name) {
+            case "Manager":
+                console.log("Manager");
+                break;
+            case "Engineer":
+                console.log("Engi");
+                break;
+            default:
+                console.log("In");
+        }
+    }
 }
 
 function generateHTML() {

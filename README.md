@@ -1,5 +1,7 @@
 # employee-list
 
+![Screenshot of HTML generated](./Images/my-team.PNG)
+
 My task was to make a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. I used [Jest](https://www.npmjs.com/package/jest) and [Inquirer](https://www.npmjs.com/package/inquirer) to ask for the employees and test my classes.
 
 Here is a video of me walking through it. Node.js command-line application(https://drive.google.com/file/d/1b83F_1049EEQ6b9EMb5hwzc9a-ra5gLR/view)

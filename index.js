@@ -1,9 +1,13 @@
+// Requires all neccesery modules
 const fs = require("fs");
 const inquirer = require('inquirer');
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+
+//Creates Variables needed 
 let team = [];
+// Stores the first part of the html
 const baseF = `<!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +27,8 @@ const baseF = `<!DOCTYPE html>
 
     <main>
 `
+
+// Stores the second part of the html
 const baseS = `
     </main>
 
@@ -31,9 +37,10 @@ const baseS = `
 
 </html>`
 
-
+// Creates the cards
 async function makeCards() {
     for (let i = 0; i < team.length; i++) {
+        // Decides what html to use per employee and appends the file
         switch (team[i].constructor.name) {
             case "Manager":
                 console.log("Manager");
@@ -59,7 +66,6 @@ async function makeCards() {
                 if (err) {
                   console.error(err);
                 }
-                // done!
               });
               console.log(cardM);
                 break;
@@ -90,7 +96,6 @@ async function makeCards() {
                 if (err) {
                   console.error(err);
                 }
-                // done!
               });
               console.log(cardE);
                 break;
@@ -120,16 +125,15 @@ async function makeCards() {
                 if (err) {
                   console.error(err);
                 }
-                // done!
               });
               console.log(cardI);
         }
     }
+    // Writes the second part to file
     fs.appendFile("./dist/index.html", baseS, err => {
         if (err) {
           console.error(err);
         }
-        // done!
       });
 }
 
@@ -143,7 +147,7 @@ function generateHTML() {
     makeCards();
 }
 
-
+// Checks if user has more employees
 function checkBuildStatus() {
     inquirer
         .prompt([
@@ -162,6 +166,7 @@ function checkBuildStatus() {
         })
 }
 
+// Builds an Manager class
 function buildManager() {
     inquirer
         .prompt([
@@ -194,6 +199,7 @@ function buildManager() {
         });
 }
 
+// Builds an engineer class
 function buildEngineer() {
     inquirer
         .prompt([
@@ -226,6 +232,7 @@ function buildEngineer() {
         });
 }
 
+// Builds an intern class
 function buildIntern() {
     inquirer
         .prompt([
@@ -258,6 +265,7 @@ function buildIntern() {
         });
 }
 
+// Asks what role the new employee is
 function checkType() {
     inquirer
         .prompt([
@@ -279,6 +287,7 @@ function checkType() {
         })
 }
 
+// First question is askd
 inquirer
     .prompt([
         {
@@ -306,7 +315,6 @@ inquirer
         const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.managerOfficeNumber);
         team.push(manager);
         console.log(team);
-        // if (team[0].constructor.name === "Manager")
         checkBuildStatus();
     });
 

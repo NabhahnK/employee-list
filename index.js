@@ -33,7 +33,7 @@ const baseS = `
 </html>`
 
 
-function makeCards() {
+async function makeCards() {
     for (let i = 0; i < team.length; i++) {
         switch (team[i].constructor.name) {
             case "Manager":
@@ -51,7 +51,7 @@ function makeCards() {
                         <th>ID: ${team[i].getID()}</th>
                     </tr>
                     <tr>
-                        <th>Email: ${team[i].getEmail()}</th>
+                        <th>Email: <a href="mailto:${team[i].getEmail()}">${team[i].getEmail()}</th>
                     </tr>
                 </table>
                 </div>
@@ -65,6 +65,7 @@ function makeCards() {
               console.log(cardM);
                 break;
             case "Engineer":
+                const profile = await team[i].getGithub();
                 console.log("Engi");
                 let cardE = `
                 <div class="card">
@@ -78,10 +79,10 @@ function makeCards() {
                         <th>ID: ${team[i].getID()}</th>
                     </tr>
                     <tr>
-                        <th>Email: ${team[i].getEmail()}</th>
+                        <th>Email: <a href="mailto:${team[i].getEmail()}">${team[i].getEmail()}</th>
                     </tr>
                     <tr>
-                        <th>GitHub: ${team[i].getGithub()}</th>
+                        <th>GitHub: <a href="${profile}">${team[i].github}</a></th>
                     </tr>
                 </table>
                 </div>
@@ -108,7 +109,7 @@ function makeCards() {
                         <th>ID: ${team[i].getID()}</th>
                     </tr>
                     <tr>
-                        <th>Email: ${team[i].getEmail()}</th>
+                        <th>Email: <a href="mailto:${team[i].getEmail()}">${team[i].getEmail()}</th>
                     </tr>
                     <tr>
                         <th>GitHub: ${team[i].getSchool()}</th>

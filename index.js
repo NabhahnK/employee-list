@@ -82,7 +82,7 @@ async function makeCards() {
                         <th>Email: <a href="mailto:${team[i].getEmail()}">${team[i].getEmail()}</th>
                     </tr>
                     <tr>
-                        <th>GitHub: <a href="${profile}">${team[i].github}</a></th>
+                        <th>GitHub: <a href="${profile}" target="#">${team[i].github}</a></th>
                     </tr>
                 </table>
                 </div>
@@ -112,7 +112,7 @@ async function makeCards() {
                         <th>Email: <a href="mailto:${team[i].getEmail()}">${team[i].getEmail()}</th>
                     </tr>
                     <tr>
-                        <th>GitHub: ${team[i].getSchool()}</th>
+                        <th>School: ${team[i].getSchool()}</th>
                     </tr>
                 </table>
                 </div>

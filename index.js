@@ -57,7 +57,7 @@ async function makeCards() {
                         <th>ID: ${team[i].getID()}</th>
                     </tr>
                     <tr>
-                        <th>Email: <a href="mailto:${team[i].getEmail()}">${team[i].getEmail()}</th>
+                        <th>Email: <a href="mailto:${team[i].getEmail()}">${team[i].getEmail()}</a></th>
                     </tr>
                 </table>
                 </div>

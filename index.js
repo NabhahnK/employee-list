@@ -60,12 +60,12 @@ async function makeCards() {
                 </table>
                 </div>
               </div>`
-              fs.appendFile("./dist/index.html", cardM, err => {
-                if (err) {
-                  console.error(err);
-                }
-              });
-              console.log(cardM);
+                fs.appendFile("./dist/index.html", cardM, err => {
+                    if (err) {
+                        console.error(err);
+                    }
+                });
+                console.log(cardM);
                 break;
             case "Engineer":
                 const profile = await team[i].getGithub();
@@ -90,12 +90,12 @@ async function makeCards() {
                 </table>
                 </div>
               </div>`
-              fs.appendFile("./dist/index.html", cardE, err => {
-                if (err) {
-                  console.error(err);
-                }
-              });
-              console.log(cardE);
+                fs.appendFile("./dist/index.html", cardE, err => {
+                    if (err) {
+                        console.error(err);
+                    }
+                });
+                console.log(cardE);
                 break;
             default:
                 console.log("In");
@@ -119,30 +119,31 @@ async function makeCards() {
                 </table>
                 </div>
               </div>`
-              fs.appendFile("./dist/index.html", cardI, err => {
-                if (err) {
-                  console.error(err);
-                }
-              });
-              console.log(cardI);
+                fs.appendFile("./dist/index.html", cardI, err => {
+                    if (err) {
+                        console.error(err);
+                    }
+                });
+                console.log(cardI);
         }
     }
-    // Writes the second part to file
-    fs.appendFile("./dist/index.html", baseS, err => {
-        if (err) {
-          console.error(err);
-        }
-      });
+    return true
 }
 
-function generateHTML() {
+async function generateHTML() {
     // return "hello"
     fs.writeFile("./dist/index.html", baseF, err => {
         if (err) {
             console.log("Did not write baseF");
         }
     })
-    makeCards();
+    await makeCards();
+    // Writes the second part to file
+    fs.appendFile("./dist/index.html", baseS, err => {
+        if (err) {
+            console.error(err);
+        }
+    });
 }
 
 // Checks if user has more employees
